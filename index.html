@@ -8,7 +8,7 @@
       <meta name="description" content="">
       <meta name="author" content="">
 
-      <meta http-equiv="Content-Security-Policy" content="default-src \'self\'; img-src https://* \'self\' data:; child-src \'none\';">
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://* 'self' data:; child-src 'none';">
 
       <title>KIASSA</title>
 
@@ -45,7 +45,7 @@
                 <a class="nav-link" href="account.php">Mon compte</a>
               </li>
 
-              
+
                 <li class="nav-item">
                   <a class="nav-link" href="logout.php">Se déconnecter</a>
                 </li>
@@ -70,17 +70,17 @@
               <h1 class="my-4">Bienvenue sur KIASSA,
                 <small>pseudo</small>
               </h1>
-            
 
-            
+
+
               <div class="alert alert-danger fade show" role="alert">
                 <strong>Une erreur interne inattendue s\'est produite</strong>. Un paramètre attendu n\'est pas parvenu à sa destination. Veuillez réesayer puis contacter un modérateur si l\'erreur se reproduit.
               </div>
-            
+
               <div class="alert alert-danger fade show" role="alert">
                 <strong>Une erreur s\'est produite</strong>. Vous ne disposez pas des autorisations nécéssaires pour réaliser cette opération.
               </div>
-            
+
 
                   <!-- Blog Post -->
                   <div class="card mb-4">
@@ -95,7 +95,7 @@
 
                     </div>
                   </div>
-                
+
 
               <!-- Pagination -->
               <ul class="pagination justify-content-center mb-4">
@@ -169,17 +169,17 @@
                   Vous avez posé ', $questions['COUNT(*)'],' questions, et vous avez répondu à ', $reponses['COUNT(*)'],' questions sur KIASSA. ', $repondues['COUNT(*)'],' questions sont en attente de validation. Vous avez ', $elues['COUNT(*)'] ,' réponses qui ont été élues comme bonnes réponses.<br><br>En tout, vous avez ', $_SESSION['karma'],' points de Karma.
                 </div>
               </div>
-            
+
                 <div class="alert alert-danger fade show" role="alert">
                   <strong>Vous avez été banni</strong>. Si besoin, contactez un modérateur avec votre adresse mail Efrei. Votre compte sera à nouveau utilisable à partir du ', $_SESSION['ban'] ,'.<br><a class = "btn btn-secondary btn-lg btn-block" href = "logout.php">Se déconnecter</a>
                 </div><br>
                 <div class="alert alert-danger fade show" role="alert">
                   <strong>Hello ', $_SESSION['pseudo'], ' !</strong><br> Vous devez confirmer votre statut d\'Efreien pour accéder au site. Celui-ci n\'a pas encore pu être vérifié.<br><a class = "btn btn-primary" href = "validation.php">Lancer ou vérifier la procédure de validation</a>
                 </div>
-              
 
-          
-            
+
+
+
 
           </div>
 
