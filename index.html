@@ -8,7 +8,8 @@
       <meta name="description" content="">
       <meta name="author" content="">
 
-      <meta http-equiv="Content-Security-Policy" content="default-src 'unsafe-eval' 'self' https://jsonplaceholder.typicode.com/todos; img-src https://* 'self' data:; child-src 'none';">
+      <meta http-equiv="Content-Security-Policy" content="default-src 'unsafe-eval' 'self' https://*; img-src https://* 'self' data:; child-src 'none';">
+      <meta http-equiv="Access-Control-Allow-Origin" content="*">
 
       <title>KIASSA</title>
 
@@ -44,11 +45,12 @@
     <!--===============================================================================================-->
 
       <script src="vue.js"></script>
-      <script src="app2.js"></script>
 
     </head>
 
     <body>
+
+      <div id="kiassa-main">
 
       <!-- Navigation -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -75,9 +77,8 @@
                 <li class="nav-item">
                   <a class="nav-link" href="logout.php">Se déconnecter</a>
                 </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="login.php">Connexion
-                  <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                  <a class="nav-link" href="login.php">Connexion</a>
                 </li>
             </ul>
           </div>
@@ -109,26 +110,22 @@
 
 
                   <!-- Blog Post -->
-                  <div class="card mb-4">
-                    <div class="card-body">
-                      <h2 class="card-title"></h2>
-                      <p class="card-text">
+                  <div id="app2">
+                    <div class="card mb-4" v-for="todo in todos">
+                      <div class="card-body">
+                        <h2 class="card-title">{{todo.name}}</h2>
+                        <p class="card-text">{{todo.description}}
 
-                        <div id="app2">
-                            <ul id="todos-list">
-                                <li v-for="todo in todos">{{todo.userId}}: {{todo.title}} ({{todo.id}}, {{todo.completed}})<br></li>
-                            </ul>
+                        </p>
+                        <a href="question.php?id=',$temp_question['id'],'" class="btn btn-primary">{{todo.price}} € &rarr;</a>
                       </div>
+                      <div class="card-footer text-muted">
+                        Publié le {{todo.date}} par {{todo.seller}}
+                        <a href="account.php?id=', $auteur['id'] ,'"></a><br>
 
-                      </p>
-                      <a href="question.php?id=',$temp_question['id'],'" class="btn btn-primary">Voir plus &rarr;</a>
+                      </div>
                     </div>
-                    <div class="card-footer text-muted">
-                      Publié le  par
-                      <a href="account.php?id=', $auteur['id'] ,'"></a><br>
-
-                    </div>
-                  </div>
+                </div>
 
 
               <!-- Pagination -->
@@ -234,6 +231,9 @@
       <!-- Bootstrap core JavaScript -->
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="app2.js"></script>
+
+    </div>
 
     </body>
 
